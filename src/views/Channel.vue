@@ -31,6 +31,7 @@ export default {
   methods: {
     close() {
       console.log("关闭");
+      this.$router.push("/");
     },
     join() {
       console.log("加入");
@@ -100,6 +101,7 @@ export default {
         margin-top: 3.4rem;
         border-radius: 0.6rem;
         cursor: pointer;
+        outline: none;
       }
     }
   }

@@ -90,6 +90,7 @@ export default {
           border: none;
           background: linear-gradient(to right, #7640b7 0%, #7038df 100%);
           cursor: pointer;
+          outline: none;
         }
       }
     }
@@ -135,6 +136,7 @@ export default {
           border: none;
           background: linear-gradient(to right, #7640b7 0%, #7038df 100%);
           cursor: pointer;
+          outline: none;
         }
       }
     }
