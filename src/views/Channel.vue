@@ -91,6 +91,7 @@ export default {
         color: #fff;
         border-radius: 0.4rem;
         text-indent: 1rem;
+        outline: none;
       }
       button {
         width: 8.2rem;
@@ -102,6 +103,9 @@ export default {
         border-radius: 0.6rem;
         cursor: pointer;
         outline: none;
+      }
+      button:hover {
+        background: linear-gradient(to right, #402d80, #26155c);
       }
     }
   }

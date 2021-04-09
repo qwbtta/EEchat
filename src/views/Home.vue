@@ -65,6 +65,7 @@ export default {
       img {
         width: 100%;
         height: 100%;
+        pointer-events: none;
       }
     }
     .headRight {
@@ -79,6 +80,9 @@ export default {
           margin-right: 9.3rem;
           cursor: pointer;
         }
+        li:hover {
+          color: #fff;
+        }
         .set-up {
           width: 19.7rem;
           height: 5.7rem;
@@ -91,6 +95,9 @@ export default {
           background: linear-gradient(to right, #7640b7 0%, #7038df 100%);
           cursor: pointer;
           outline: none;
+        }
+        .set-up:hover {
+          background: linear-gradient(to right, #7640b7 0%, #7e4edf 50%);
         }
       }
     }
@@ -126,6 +133,9 @@ export default {
           color: #ddd;
           cursor: pointer;
         }
+        span:hover {
+          color: #fff;
+        }
         .start {
           width: 14.2rem;
           height: 5.2rem;
@@ -138,6 +148,9 @@ export default {
           cursor: pointer;
           outline: none;
         }
+        .start:hover {
+          background: linear-gradient(to right, #7640b7 0%, #7e4edf 50%);
+        }
       }
     }
     .mainRight {
@@ -146,9 +159,11 @@ export default {
       img:nth-of-type(1) {
         margin-left: 12rem;
         margin-top: 26rem;
+        pointer-events: none;
       }
       img:nth-of-type(2) {
         margin-left: 4rem;
+        pointer-events: none;
       }
     }
   }
