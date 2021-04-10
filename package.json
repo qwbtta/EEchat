@@ -8,7 +8,10 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "bip39": "^3.0.3",
     "core-js": "^2.6.5",
+    "ethereumjs-util": "^7.0.10",
+    "ethereumjs-wallet": "^1.0.1",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
     "vuex": "^3.0.1"

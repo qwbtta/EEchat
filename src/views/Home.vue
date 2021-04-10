@@ -20,7 +20,10 @@
         <p class="details">With the instant messaging software that 800 million people are using, you can not only chat and make friends through QQ on various communication terminals, but also make free video and voice calls, or send and receive important files anytime and anywhere. </p>
         <div class="startArea">
           <span>点击生成聊天链接</span>
-          <button class="start">start</button>
+          <button
+            class="start"
+            @click="obtainAccount"
+          >start</button>
         </div>
       </div>
       <div class="mainRight">
@@ -38,6 +41,9 @@
 </template>
 
 <script>
+const bip39 = require("bip39");
+const { hdkey } = require("ethereumjs-wallet");
+const util = require("ethereumjs-util");
 export default {
   data() {
     return {};
@@ -46,7 +52,27 @@ export default {
     goChanel() {
       this.$router.push("channel");
     },
+    //生成私钥，公钥，账户
+    async obtainAccount() {
+      // 1.1 生成助记词 ;
+      let mnemonic = bip39.generateMnemonic();
+      //2.将助记词转成seed
+      let seed = await bip39.mnemonicToSeed(mnemonic);
+      //3.通过hdkey将seed生成HD Wallet
+      let hdWallet = await hdkey.fromMasterSeed(seed);
+      //4.生成钱包中在m/44'/60'/0'/0/0路径的keypair
+      let key = await hdWallet.derivePath("m/44'/60'/0'/0/0");
+      //5.从keypair中获取私钥
+      console.log("私钥：" + util.bufferToHex(key._hdkey._privateKey));
+      //6.从keypair中获取公钥
+      console.log("公钥：" + util.bufferToHex(key._hdkey._publicKey));
+      //7.使用keypair中的公钥生成地址
+      let address = await util.pubToAddress(key._hdkey._publicKey, true);
+      //编码地址
+      console.log("账户地址", "0x" + address.toString("hex"));
+    },
   },
+  mounted() {},
 };
 </script>
 
